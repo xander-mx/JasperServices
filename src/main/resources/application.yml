@@ -1,0 +1,24 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+jasperservice:
+  certificate: /home/alexander/Documents/integrasoadev-wls-1
+  path_out: /home/alexander/GlobalGas/PDFCreatorIntegra/src/main/resources/invoice.pdf
+  url: http://alexander-thinkpad-p51:8080/PDFCreatorIntegra-1.8/integra/pdfcreator/
+  payment: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceComplementERP.jasper
+  invoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceERP.jasper
+  subReportInvoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/detailsInvoiceERP.jasper
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+jasperservice:
+  cert: /home/alexander/Documents/integrasoadev-wls-1
+  path_out: /home/alexander/GlobalGas/PDFCreatorIntegra/src/main/resources/invoice.pdf
+  url: http://alexander-thinkpad-p51:8080/PDFCreatorIntegra-1.8/integra/pdfcreator/
+  payment: /home/GlobalNet/templates/invoices/globalnetInvoiceComplementERP.jasper
+  invoice: /home/GlobalNet/templates/invoices/globalnetInvoiceERP.jasper
+  subReportInvoice: /home/GlobalNet/templates/invoices/detailsInvoiceERP.jasper

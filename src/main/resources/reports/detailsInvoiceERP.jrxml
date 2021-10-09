@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detailsInvoiceERP" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="5" uuid="b9f5d908-9f69-4aa7-b215-9185a634a2c0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString language="JSON">
+		<![CDATA[]]>
+	</queryString>
+	<field name="NoIdentificacion" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="NoIdentificacion"/>
+		<fieldDescription><![CDATA[NoIdentificacion]]></fieldDescription>
+	</field>
+	<field name="ClaveProdServ" class="java.lang.Integer">
+		<property name="net.sf.jasperreports.json.field.expression" value="ClaveProdServ"/>
+		<fieldDescription><![CDATA[ClaveProdServ]]></fieldDescription>
+	</field>
+	<field name="Cantidad" class="java.math.BigDecimal">
+		<property name="net.sf.jasperreports.json.field.expression" value="Cantidad"/>
+		<fieldDescription><![CDATA[Cantidad]]></fieldDescription>
+	</field>
+	<field name="ClaveUnidad" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ClaveUnidad"/>
+		<fieldDescription><![CDATA[ClaveUnidad]]></fieldDescription>
+	</field>
+	<field name="Unidad" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Unidad"/>
+		<fieldDescription><![CDATA[Unidad]]></fieldDescription>
+	</field>
+	<field name="Descripcion" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Descripcion"/>
+		<fieldDescription><![CDATA[Descripcion]]></fieldDescription>
+	</field>
+	<field name="ValorUnitario" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ValorUnitario"/>
+		<fieldDescription><![CDATA[ValorUnitario]]></fieldDescription>
+	</field>
+	<field name="Importe" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Importe"/>
+		<fieldDescription><![CDATA[Importe]]></fieldDescription>
+	</field>
+	<field name="Impuestos" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Impuestos"/>
+		<fieldDescription><![CDATA[Impuestos]]></fieldDescription>
+	</field>
+	<field name="InformacionAduanera" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="InformacionAduanera.NumeroPedimento"/>
+		<fieldDescription><![CDATA[InformacionAduanera]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+				<reportElement x="90" y="0" width="49" height="7" uuid="a0bd70ba-725f-47e3-975e-1c7908a94cf4"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cantidad}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="149" y="0" width="30" height="7" uuid="f17ce546-b213-415d-b761-63317f6da642"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ClaveUnidad}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="206" y="0" width="30" height="7" uuid="fc32e8d8-6efd-4d14-8522-6c57be319234"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Unidad}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="250" y="0" width="115" height="7" uuid="7f559c7a-c606-47de-ae9b-64dd9125542b"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font size="6"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Descripcion}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="365" y="0" width="60" height="7" uuid="b3b57883-eeec-4b03-874b-e2bc5ded2c39"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ClaveProdServ}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="425" y="0" width="60" height="7" uuid="c1d5448f-567e-41d3-ab36-169941dcbcf0"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ValorUnitario}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$#,##0.00;$-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="485" y="0" width="70" height="7" uuid="9477d0c7-4160-483d-aad4-6591a9c3846b"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA["$ " + new DecimalFormat("###,##0.00").format(new Double($F{Importe}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="90" height="7" uuid="39690013-145b-4b47-a76c-ea5f37861bd5"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NoIdentificacion}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="101" y="12" width="120" height="7" isRemoveLineWhenBlank="true" uuid="7a12a13c-05cd-4d4a-9c40-de527b3c5566"/>
+				<textElement markup="html">
+					<font size="6"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{InformacionAduanera}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="12" width="90" height="7" uuid="fa46cfff-7dbc-4916-9fdd-dd1be62e9eef">
+					<printWhenExpression><![CDATA[$F{InformacionAduanera} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de Pedimento]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
