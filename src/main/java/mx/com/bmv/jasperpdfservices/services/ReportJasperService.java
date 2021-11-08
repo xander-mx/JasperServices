@@ -38,6 +38,7 @@ public class ReportJasperService {
     public static final String CONCEPTOS = "Conceptos";
     public static final String IMPUESTOS = "Impuestos";
     public static final String TASA_O_CUOTA = "TasaOCuota";
+    public static final String TASA_O_CUOTA_RETENIDOS = "TasaOCuotaRetenidos";
     public static final String TIPO_DE_COMPROBANTE = "TipoDeComprobante";
     public static final String VOUCHER = "voucher";
     public static final String QR = "qr";
@@ -47,6 +48,7 @@ public class ReportJasperService {
     public static final int HEIGHT_QR = 798;
     public static final int WEIGHT_QR = 800;
     public static final String SUBREPORT = "subreport";
+    public static final String RETENCIONES = "Retenciones";
 
     private final YAMLConfig config;
 
@@ -104,6 +106,8 @@ public class ReportJasperService {
     private byte[] generateReportInvoice(Map<String, Object> reportParameters,ObjectNode invoice) throws JRException {
         reportParameters.put(VOUCHER, invoice.get(COMPROBANTE).get(TIPO_DE_COMPROBANTE));
         reportParameters.put(TASA_O_CUOTA,(invoice.get(COMPROBANTE).get(IMPUESTOS).get(TRASLADOS).get(ZERO).get(TASA_O_CUOTA).asDouble()*100)+ PERCENTAGE);
+        if(invoice.get(COMPROBANTE).get(IMPUESTOS).get(RETENCIONES) != null)
+            reportParameters.put(TASA_O_CUOTA_RETENIDOS,(invoice.get(COMPROBANTE).get(IMPUESTOS).get(RETENCIONES).get(ZERO).get(TASA_O_CUOTA).asDouble()*100)+ PERCENTAGE);
         return JasperUtils.generateJasperReport(reportParameters, config.getInvoice());
     }
 }

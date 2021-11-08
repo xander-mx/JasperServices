@@ -81,11 +81,28 @@ public class Impuestos {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Retencion {
 
+        @JsonProperty("Base")
+        private String base;
+
         @JsonProperty("Impuesto")
         private String impuesto;
 
         @JsonProperty("Importe")
         private String importe;
+
+        @JsonProperty("TipoFactor")
+        private String tipoFactor;
+
+        @JsonProperty("TasaOCuota")
+        private String tasaOCuota;
+
+        public String getBase() {
+            return base;
+        }
+
+        public void setBase(String base) {
+            this.base = base;
+        }
 
         public String getImpuesto() {
             return impuesto;
@@ -102,6 +119,22 @@ public class Impuestos {
         public void setImporte(String importe) {
             this.importe = importe;
         }
+
+        public String getTipoFactor() {
+            return tipoFactor;
+        }
+
+        public void setTipoFactor(String tipoFactor) {
+            this.tipoFactor = tipoFactor;
+        }
+
+        public String getTasaOCuota() {
+            return tasaOCuota;
+        }
+
+        public void setTasaOCuota(String tasaOCuota) {
+            this.tasaOCuota = tasaOCuota;
+        }
     }
 
     public List<Traslado> getTraslados() {
@@ -110,6 +143,22 @@ public class Impuestos {
 
     public void setTraslados(List<Traslado> traslados) {
         this.traslados = traslados;
+    }
+
+    public List<Retencion> getRetenciones() {
+        return retenciones;
+    }
+
+    public void setRetenciones(List<Retencion> retenciones) {
+        this.retenciones = retenciones;
+    }
+
+    public String getTotalImpuestosRetenidos() {
+        return totalImpuestosRetenidos;
+    }
+
+    public void setTotalImpuestosRetenidos(String totalImpuestosRetenidos) {
+        this.totalImpuestosRetenidos = totalImpuestosRetenidos;
     }
 
     public String getTotalImpuestosTrasladados() {

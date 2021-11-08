@@ -8,10 +8,13 @@ import com.google.zxing.WriterException;
 import mx.com.bmv.jasperpdfservices.services.InvoiceJasperService;
 import mx.com.bmv.jasperpdfservices.services.security.CredentialsServ;
 import net.sf.jasperreports.engine.JRException;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;

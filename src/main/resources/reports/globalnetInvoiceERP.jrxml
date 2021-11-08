@@ -15,7 +15,7 @@
 	<parameter name="voucher" class="java.lang.String"/>
 	<parameter name="Conceptos" class="net.sf.jasperreports.engine.data.JsonDataSource"/>
 	<parameter name="TasaOCuota" class="java.lang.String"/>
-	<parameter name="TasaOCuotaRet" class="java.lang.String"/>
+	<parameter name="TasaOCuotaRetenidos" class="java.lang.String"/>
 	<parameter name="TotalImpuestosRetenidos" class="java.lang.String"/>
 	<parameter name="subreport" class="java.lang.String">
 		<defaultValueExpression><![CDATA["detailsInvoiceERP.jasper"]]></defaultValueExpression>
@@ -271,7 +271,7 @@
 					<textElement>
 						<font size="6"/>
 					</textElement>
-					<textFieldExpression><![CDATA[($F{RegimenFiscal}.equals("601")?"601 Régimen General de Ley Personas Morales":"")]]></textFieldExpression>
+					<textFieldExpression><![CDATA[($F{RegimenFiscal}.equals("601")?"601 Régimen General de Ley Personas Morales":$F{RegimenFiscal})]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement stretchType="RelativeToBandHeight" x="12" y="164" width="27" height="7" uuid="12e537f6-2152-4967-bb7a-8fb016f99935">
@@ -635,6 +635,7 @@
 			<subreport overflowType="Stretch">
 				<reportElement x="-20" y="0" width="612" height="49" uuid="a09040ce-44cf-44a3-8acd-95c8db780cc9"/>
 				<dataSourceExpression><![CDATA[$P{Conceptos}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreport}]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
@@ -1022,6 +1023,16 @@
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Comentarios}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="390" y="40" width="40" height="7" uuid="f689a821-5bbf-49f6-8b18-043cba65a198">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TasaOCuotaRetenidos}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>
