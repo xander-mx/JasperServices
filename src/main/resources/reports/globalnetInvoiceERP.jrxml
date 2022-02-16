@@ -187,9 +187,10 @@
 					</graphicElement>
 				</rectangle>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="94" y="218" width="49" height="10" uuid="2c2f84dc-165d-49ac-b3be-6a35fa65da4d">
+					<reportElement stretchType="RelativeToBandHeight" x="101" y="218" width="47" height="10" uuid="2c2f84dc-165d-49ac-b3be-6a35fa65da4d">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
 						<font size="6" isBold="true"/>
@@ -197,7 +198,7 @@
 					<text><![CDATA[Cantidad]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="193" y="218" width="65" height="10" uuid="926810e9-5a2e-4c52-b6f7-0c6161b4385a">
+					<reportElement stretchType="RelativeToBandHeight" x="198" y="218" width="65" height="10" uuid="926810e9-5a2e-4c52-b6f7-0c6161b4385a">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
@@ -206,8 +207,9 @@
 					<text><![CDATA[Unidad de Medida]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="258" y="218" width="126" height="10" uuid="8b548a2c-1c43-406e-953f-7ff8380e3397">
+					<reportElement stretchType="RelativeToBandHeight" x="263" y="218" width="121" height="10" uuid="8b548a2c-1c43-406e-953f-7ff8380e3397">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
 						<font size="6" isBold="true"/>
@@ -215,7 +217,7 @@
 					<text><![CDATA[Descripcion]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="444" y="218" width="61" height="10" uuid="bf6b721b-af0e-4d34-b798-0d27e2293607">
+					<reportElement stretchType="RelativeToBandHeight" x="449" y="218" width="61" height="10" uuid="bf6b721b-af0e-4d34-b798-0d27e2293607">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
@@ -557,7 +559,7 @@
 					<text><![CDATA[Uso CFDI:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="143" y="218" width="50" height="10" uuid="348c3591-b887-4b52-967e-7d3f643af691">
+					<reportElement stretchType="RelativeToBandHeight" x="148" y="218" width="50" height="10" uuid="348c3591-b887-4b52-967e-7d3f643af691">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -567,7 +569,7 @@
 					<text><![CDATA[Cve de Unidad]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="384" y="218" width="60" height="10" uuid="120f3276-dfe7-4b1d-8a3f-7b4192044127">
+					<reportElement stretchType="RelativeToBandHeight" x="387" y="218" width="60" height="10" uuid="120f3276-dfe7-4b1d-8a3f-7b4192044127">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">

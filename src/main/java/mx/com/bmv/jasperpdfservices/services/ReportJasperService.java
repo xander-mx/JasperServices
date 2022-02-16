@@ -2,12 +2,14 @@ package mx.com.bmv.jasperpdfservices.services;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.zxing.WriterException;
+import mx.com.bmv.jasperpdfservices.models.invoices.Comprobante;
 import mx.com.bmv.jasperpdfservices.utils.CreateQR;
 import mx.com.bmv.jasperpdfservices.utils.JasperUtils;
 import mx.com.bmv.jasperpdfservices.utils.YAMLConfig;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.data.JsonDataSource;
 import net.sf.jasperreports.engine.query.JsonQueryExecuterFactory;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -74,8 +76,10 @@ public class ReportJasperService {
         conceptJson.flush();
         conceptJson.close();
 
-        reportParameters.put(JsonQueryExecuterFactory.JSON_INPUT_STREAM, new FileInputStream(commonDataFile));
-        reportParameters.put(CONCEPTOS, new JsonDataSource(new FileInputStream(conceptsFile), CONCEPTO));
+        reportParameters.put(JsonQueryExecuterFactory.JSON_INPUT_STREAM, JasperUtils.toStream(dataXml));
+        reportParameters.put(CONCEPTOS, new JsonDataSource(JasperUtils.toStream(dataXml.get(COMPROBANTE).get(CONCEPTOS)), CONCEPTO));
+        /*reportParameters.put(JsonQueryExecuterFactory.JSON_INPUT_STREAM, new FileInputStream(commonDataFile));*/
+        /*reportParameters.put(CONCEPTOS, new JsonDataSource(new FileInputStream(conceptsFile), CONCEPTO));*/
         reportParameters.put(SUBREPORT,config.getSubReportInvoice());
         reportParameters.put(QR,new ByteArrayInputStream(qr));
         conceptsFile.delete();
@@ -106,7 +110,7 @@ public class ReportJasperService {
     private byte[] generateReportInvoice(Map<String, Object> reportParameters,ObjectNode invoice) throws JRException {
         reportParameters.put(VOUCHER, invoice.get(COMPROBANTE).get(TIPO_DE_COMPROBANTE));
         reportParameters.put(TASA_O_CUOTA,(invoice.get(COMPROBANTE).get(IMPUESTOS).get(TRASLADOS).get(ZERO).get(TASA_O_CUOTA).asDouble()*100)+ PERCENTAGE);
-        if(invoice.get(COMPROBANTE).get(IMPUESTOS).get(RETENCIONES) != null)
+        if(!invoice.get(COMPROBANTE).get(IMPUESTOS).get(RETENCIONES).isNull())
             reportParameters.put(TASA_O_CUOTA_RETENIDOS,(invoice.get(COMPROBANTE).get(IMPUESTOS).get(RETENCIONES).get(ZERO).get(TASA_O_CUOTA).asDouble()*100)+ PERCENTAGE);
         return JasperUtils.generateJasperReport(reportParameters, config.getInvoice());
     }
