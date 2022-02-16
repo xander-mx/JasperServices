@@ -65,27 +65,11 @@ public class ReportJasperService {
         byte[] report;
         byte[] qr = Files.readAllBytes(CreateQR.getGenerateQR(imageQR,dataXml.get(COMPROBANTE).get(TEXT_QR).asText() , HEIGHT_QR, WEIGHT_QR).toPath());
 
-        File commonDataFile = File.createTempFile(INVOICE, JSON);
-        BufferedWriter jsonFile = new BufferedWriter(new FileWriter(commonDataFile));
-        jsonFile.write(dataXml.toString());
-        jsonFile.flush();
-        jsonFile.close();
-        File conceptsFile = File.createTempFile(CONCEPTS, JSON);
-        BufferedWriter conceptJson = new BufferedWriter(new FileWriter(conceptsFile));
-        conceptJson.write(dataXml.get(COMPROBANTE).get(CONCEPTOS).toString());
-        conceptJson.flush();
-        conceptJson.close();
-
         reportParameters.put(JsonQueryExecuterFactory.JSON_INPUT_STREAM, JasperUtils.toStream(dataXml));
         reportParameters.put(CONCEPTOS, new JsonDataSource(JasperUtils.toStream(dataXml.get(COMPROBANTE).get(CONCEPTOS)), CONCEPTO));
-        /*reportParameters.put(JsonQueryExecuterFactory.JSON_INPUT_STREAM, new FileInputStream(commonDataFile));*/
-        /*reportParameters.put(CONCEPTOS, new JsonDataSource(new FileInputStream(conceptsFile), CONCEPTO));*/
         reportParameters.put(SUBREPORT,config.getSubReportInvoice());
         reportParameters.put(QR,new ByteArrayInputStream(qr));
-        conceptsFile.delete();
-        commonDataFile.delete();
         imageQR.delete();
-        commonDataFile.deleteOnExit();
 
         report = type.equals(DOCUMENT_TYPE) ? generateReportPaymentComplement(reportParameters,dataXml) : generateReportInvoice(reportParameters,dataXml);
 
@@ -93,17 +77,11 @@ public class ReportJasperService {
     }
 
     private byte[] generateReportPaymentComplement(Map<String, Object> reportParameters,ObjectNode payment) throws IOException, JRException {
-        File doctosFile = File.createTempFile(DOCTOS_RELATIONS, JSON);
-        BufferedWriter doctosJson = new BufferedWriter(new FileWriter(doctosFile));
-        doctosJson.write(payment.get(COMPROBANTE)
+        reportParameters.put(DOCTOS_RELATIONS, new JsonDataSource(JasperUtils.toStream(payment.get(COMPROBANTE)
                 .get(COMPLEMENTO)
                 .get(PAGOS)
-                .get(PAGO).get(DOCTOS_RELACIONADOS).toString());
-        doctosJson.flush();
-        doctosJson.close();
+                .get(PAGO).get(DOCTOS_RELACIONADOS)), DOCTO_RELACIONADO));
 
-        reportParameters.put(DOCTOS_RELATIONS, new JsonDataSource(new FileInputStream(doctosFile), DOCTO_RELACIONADO));
-        doctosFile.delete();
         return JasperUtils.generateJasperReport(reportParameters, config.getPayment());
     }
 
