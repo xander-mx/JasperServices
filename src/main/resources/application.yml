@@ -1,4 +1,9 @@
 spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bmv_services?useSSL=false
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
   config:
     activate:
       on-profile: dev
@@ -12,6 +17,10 @@ jasperservice:
 
 ---
 spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bmv_services?useSSL=false
+    username: root
+    password: 8lFfz2m6M7R8*mC
   config:
     activate:
       on-profile: prod

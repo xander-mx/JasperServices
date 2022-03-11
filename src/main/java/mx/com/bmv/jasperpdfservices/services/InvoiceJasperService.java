@@ -51,7 +51,6 @@ public class InvoiceJasperService {
         JsonUtils<Comprobante> jsonUtils = new JsonUtils<>();
         ObjectMapper om = new ObjectMapper();
         ObjectNode singleInvoiceJson;
-
         Comprobante comprobante = JasperUtils.mapperXmlToModel(new String(xmlToTransform, StandardCharsets.UTF_8), Comprobante.class);
         comprobante.setTextQR(generateTextQR(comprobante));
         comprobante.setCadenaOriginal(generateOriginalString(comprobante));

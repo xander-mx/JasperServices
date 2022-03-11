@@ -4,7 +4,9 @@ package mx.com.bmv.jasperpdfservices.models.invoices;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Comprobante {
@@ -153,7 +155,8 @@ public class Comprobante {
     }
 
     public void setFormaPago(String formaPago) {
-        this.formaPago = formaPago;
+        FORMA_PAGO forma_pago = Arrays.stream(FORMA_PAGO.values()).filter(forma -> Objects.equals(forma.getCode(), formaPago)).findFirst().orElse(null);
+        this.formaPago = (forma_pago == null ? formaPago : forma_pago.getCodeDescription());
     }
 
     public String getLugarExpedicion() {
@@ -268,5 +271,49 @@ public class Comprobante {
         this.emisor = emisor;
     }
 
+    protected enum FORMA_PAGO {
+        EFECTIVO("Efectivo","01"),
+        CHEQUE("Cheque nominativo","02"),
+        TRANSFERENCIA("Transferencia electrónica de fondos","03"),
+        CREDITO("Tarjeta de crédito","04"),
+        MONEDERO("Monedero electrónico","05"),
+        DINERO("Dinero electrónico","06"),
+        VALES("Vales de despensa","08"),
+        CONSIGNACION("Pago por consignación","14"),
+        CONDONACION("Condonación","15"),
+        COMPENSACION("Compensación","17"),
+        DEBITO("Tarjeta de débito","28"),
+        SERVICIOS("Tarjeta de servicios","29"),
+        ANTICIPOS("Aplicación de anticipos","30"),
+        POR_DEFINIR("Por definir","99");
+
+        private String description;
+        private String code;
+
+        FORMA_PAGO(String descripcion, String code) {
+            this.description = descripcion;
+            this.code = code;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public String getCodeDescription() {
+            return this.code + " - " +this.description;
+        }
+    }
 }
 
