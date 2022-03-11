@@ -4,25 +4,25 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "credenciales")
+@Table(name = "credentials")
 public class Credentials {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "usuario")
+    @Column(name = "username")
     private String user;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "nombre")
+    @Column(name = "name")
     private String name;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "credencial_rol", joinColumns = {
-            @JoinColumn(name = "id_credencial",referencedColumnName="id",nullable = false, updatable = false) },
+    @JoinTable(name = "credential_rol", joinColumns = {
+            @JoinColumn(name = "id_credential",referencedColumnName="id",nullable = false, updatable = false) },
             inverseJoinColumns = { @JoinColumn(name = "id_rol",referencedColumnName="id",nullable = false, updatable = false)})
     Collection<Role> roles;
 

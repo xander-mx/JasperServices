@@ -28,6 +28,7 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @RestController
 @RequestMapping("/JasperService")
+@CrossOrigin(origins = "*")
 public class JasperCtrl {
 
     private final InvoiceJasperService invoiceJasperService;

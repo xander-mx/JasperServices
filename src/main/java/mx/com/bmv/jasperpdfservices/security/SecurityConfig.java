@@ -42,9 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         AuthenticationBMVFilter authenticationBMVFilter = new AuthenticationBMVFilter(authenticationManagerBean());
         authenticationBMVFilter.setFilterProcessesUrl("/api/login");
         http.csrf().disable();
+        http.cors();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/api/login/**","token/refresh/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/JasperService/invoice/**").hasAuthority("JARVIS");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/JasperService/invoice/**");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(authenticationBMVFilter);
         http.addFilterBefore(new AuthorizationBMVFilter(), UsernamePasswordAuthenticationFilter.class);
