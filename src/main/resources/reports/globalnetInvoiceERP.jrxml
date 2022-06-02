@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="globalnetInvoice" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="af15a7a9-f6c7-4f5e-983c-b550bacd8ab4">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<parameter name="logo" class="java.io.InputStream"/>
 	<parameter name="qr" class="java.io.InputStream"/>
-	<parameter name="cuentaDePago" class="java.lang.String"/>
-	<parameter name="centroDeCosto" class="java.lang.String"/>
-	<parameter name="customeraddress" class="java.lang.String"/>
-	<parameter name="transmitteraddress" class="java.lang.String"/>
-	<parameter name="cp" class="java.lang.String"/>
-	<parameter name="usoCfdi" class="java.lang.String"/>
-	<parameter name="FormaPago" class="java.lang.String"/>
-	<parameter name="hasLocalTax" class="java.lang.Boolean"/>
 	<parameter name="voucher" class="java.lang.String"/>
 	<parameter name="Conceptos" class="net.sf.jasperreports.engine.data.JsonDataSource"/>
 	<parameter name="TasaOCuota" class="java.lang.String"/>
-	<parameter name="TasaOCuotaRetenidos" class="java.lang.String"/>
-	<parameter name="TotalImpuestosRetenidos" class="java.lang.String"/>
 	<parameter name="subreport" class="java.lang.String">
 		<defaultValueExpression><![CDATA["detailsInvoiceERP.jasper"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="regimenfiscal" class="java.lang.String"/>
 	<queryString language="JSON">
 		<![CDATA[]]>
 	</queryString>
@@ -152,18 +140,11 @@
 		<property name="net.sf.jasperreports.json.field.expression" value="Comprobante.importeLetra"/>
 		<fieldDescription><![CDATA[Comprobante.importeLetra]]></fieldDescription>
 	</field>
-	<field name="Comentarios" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="Comprobante.Complemento.Comentarios.value"/>
-		<fieldDescription><![CDATA[Comprobante.Complemento.Comentarios.value]]></fieldDescription>
-	</field>
-	<variable name="fiveToThousand" class="java.lang.Double">
-		<variableExpression><![CDATA[$P{hasLocalTax} ? (0.005 * Double.valueOf(0)) : 0]]></variableExpression>
-	</variable>
 	<group name="Invoice Data">
 		<groupHeader>
-			<band height="232">
+			<band height="257">
 				<rectangle radius="5">
-					<reportElement stretchType="RelativeToBandHeight" x="275" y="138" width="295" height="71" backcolor="rgba(255, 255, 255, 0.0)" uuid="e5684e8b-49ce-4a37-b58c-d7416e4453d4"/>
+					<reportElement stretchType="RelativeToBandHeight" x="275" y="139" width="295" height="89" backcolor="rgba(255, 255, 255, 0.0)" uuid="e5684e8b-49ce-4a37-b58c-d7416e4453d4"/>
 					<graphicElement>
 						<pen lineWidth="2.0" lineStyle="Solid" lineColor="#0D3082"/>
 					</graphicElement>
@@ -175,7 +156,7 @@
 					</graphicElement>
 				</rectangle>
 				<rectangle radius="5">
-					<reportElement stretchType="RelativeToBandHeight" x="1" y="138" width="269" height="72" backcolor="rgba(255, 255, 255, 0.0)" uuid="310b5197-016e-4b1c-b0ef-a6d109b2e6e2"/>
+					<reportElement stretchType="RelativeToBandHeight" x="1" y="138" width="269" height="90" backcolor="rgba(255, 255, 255, 0.0)" uuid="310b5197-016e-4b1c-b0ef-a6d109b2e6e2"/>
 					<graphicElement>
 						<pen lineWidth="2.0" lineStyle="Solid" lineColor="#0D3082"/>
 					</graphicElement>
@@ -187,10 +168,9 @@
 					</graphicElement>
 				</rectangle>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="101" y="218" width="47" height="10" uuid="2c2f84dc-165d-49ac-b3be-6a35fa65da4d">
+					<reportElement stretchType="RelativeToBandHeight" x="93" y="242" width="49" height="10" uuid="2c2f84dc-165d-49ac-b3be-6a35fa65da4d">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
 						<font size="6" isBold="true"/>
@@ -198,7 +178,7 @@
 					<text><![CDATA[Cantidad]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="198" y="218" width="65" height="10" uuid="926810e9-5a2e-4c52-b6f7-0c6161b4385a">
+					<reportElement stretchType="RelativeToBandHeight" x="193" y="242" width="65" height="10" uuid="926810e9-5a2e-4c52-b6f7-0c6161b4385a">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
@@ -207,9 +187,8 @@
 					<text><![CDATA[Unidad de Medida]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="263" y="218" width="121" height="10" uuid="8b548a2c-1c43-406e-953f-7ff8380e3397">
+					<reportElement stretchType="RelativeToBandHeight" x="258" y="242" width="126" height="10" uuid="8b548a2c-1c43-406e-953f-7ff8380e3397">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
 						<font size="6" isBold="true"/>
@@ -217,7 +196,7 @@
 					<text><![CDATA[Descripcion]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="449" y="218" width="61" height="10" uuid="bf6b721b-af0e-4d34-b798-0d27e2293607">
+					<reportElement stretchType="RelativeToBandHeight" x="444" y="242" width="61" height="10" uuid="bf6b721b-af0e-4d34-b798-0d27e2293607">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
@@ -226,7 +205,7 @@
 					<text><![CDATA[Valor unitario]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="522" y="218" width="50" height="10" uuid="b47f35c3-7195-4e73-9626-59e72a8d99bb">
+					<reportElement stretchType="RelativeToBandHeight" x="522" y="242" width="50" height="10" uuid="b47f35c3-7195-4e73-9626-59e72a8d99bb">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
@@ -235,19 +214,19 @@
 					<text><![CDATA[Importe]]></text>
 				</staticText>
 				<line>
-					<reportElement x="0" y="216" width="572" height="1" uuid="ff527eb2-7447-4899-8369-48ef9325f672"/>
+					<reportElement x="0" y="240" width="572" height="1" uuid="ff527eb2-7447-4899-8369-48ef9325f672"/>
 					<graphicElement>
 						<pen lineWidth="2.0" lineColor="#0D3082"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="0" y="229" width="572" height="1" uuid="3a20da1e-4542-4603-859e-cd69a5a1eaee"/>
+					<reportElement x="0" y="253" width="572" height="1" uuid="3a20da1e-4542-4603-859e-cd69a5a1eaee"/>
 					<graphicElement>
 						<pen lineWidth="2.0" lineColor="#0D3082"/>
 					</graphicElement>
 				</line>
 				<textField isBlankWhenNull="true">
-					<reportElement x="12" y="151" width="247" height="9" uuid="8605c715-e28c-4166-bbb1-857181e212ed">
+					<reportElement x="12" y="151" width="247" height="15" uuid="8605c715-e28c-4166-bbb1-857181e212ed">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -257,7 +236,7 @@
 					<textFieldExpression><![CDATA[$F{EmisorNombre}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="40" y="164" width="100" height="7" uuid="2c475783-7748-4314-8fbc-3ea94598f530">
+					<reportElement x="40" y="171" width="100" height="7" uuid="2c475783-7748-4314-8fbc-3ea94598f530">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -267,17 +246,17 @@
 					<textFieldExpression><![CDATA[$F{EmisorRfc}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="12" y="186" width="248" height="14" uuid="f05be744-2ce0-4784-ad55-8197aa32d119">
+					<reportElement x="12" y="193" width="248" height="7" uuid="f05be744-2ce0-4784-ad55-8197aa32d119">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="6"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RegimenFiscal}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[($F{RegimenFiscal}.equals("601")?"601 Régimen General de Ley Personas Morales":"")]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="12" y="164" width="27" height="7" uuid="12e537f6-2152-4967-bb7a-8fb016f99935">
+					<reportElement stretchType="RelativeToBandHeight" x="12" y="171" width="27" height="7" uuid="12e537f6-2152-4967-bb7a-8fb016f99935">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -287,7 +266,7 @@
 					<text><![CDATA[R.F.C:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="12" y="177" width="69" height="7" uuid="38ef2a04-729c-46db-b522-145d09679290">
+					<reportElement stretchType="RelativeToBandHeight" x="12" y="184" width="69" height="7" uuid="38ef2a04-729c-46db-b522-145d09679290">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -297,7 +276,7 @@
 					<text><![CDATA[REGIMEN FISCAL:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="290" y="164" width="29" height="7" uuid="03e2fd5c-cdfa-4de9-a3e7-1d7b15b8e4c4">
+					<reportElement stretchType="RelativeToBandHeight" x="290" y="171" width="29" height="7" uuid="03e2fd5c-cdfa-4de9-a3e7-1d7b15b8e4c4">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -307,7 +286,7 @@
 					<text><![CDATA[R.F.C:]]></text>
 				</staticText>
 				<textField isBlankWhenNull="true">
-					<reportElement x="321" y="164" width="123" height="7" uuid="41acc130-bd5a-44ab-8c38-137d54b68724">
+					<reportElement x="321" y="171" width="123" height="7" uuid="41acc130-bd5a-44ab-8c38-137d54b68724">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -317,7 +296,7 @@
 					<textFieldExpression><![CDATA[$F{ReceptorRfc}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="290" y="151" width="270" height="9" uuid="0f1f8aab-5519-4429-9a1e-944ca5b2c100">
+					<reportElement x="290" y="151" width="270" height="15" uuid="0f1f8aab-5519-4429-9a1e-944ca5b2c100">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -539,7 +518,7 @@
 ))]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="290" y="187" width="270" height="13" uuid="d1046af8-3483-4712-b45e-a98dbd384e5f">
+					<reportElement x="339" y="183" width="223" height="13" uuid="d1046af8-3483-4712-b45e-a98dbd384e5f">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -549,7 +528,7 @@
 					<textFieldExpression><![CDATA[$F{ReceptorUsoCFDI}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="290" y="177" width="38" height="7" uuid="6a394841-33bb-47a0-92a5-833adf85b4d8">
+					<reportElement stretchType="RelativeToBandHeight" x="290" y="184" width="38" height="7" uuid="6a394841-33bb-47a0-92a5-833adf85b4d8">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -559,7 +538,7 @@
 					<text><![CDATA[Uso CFDI:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="148" y="218" width="50" height="10" uuid="348c3591-b887-4b52-967e-7d3f643af691">
+					<reportElement stretchType="RelativeToBandHeight" x="142" y="242" width="50" height="10" uuid="348c3591-b887-4b52-967e-7d3f643af691">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -569,7 +548,7 @@
 					<text><![CDATA[Cve de Unidad]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="387" y="218" width="60" height="10" uuid="120f3276-dfe7-4b1d-8a3f-7b4192044127">
+					<reportElement stretchType="RelativeToBandHeight" x="384" y="242" width="60" height="10" uuid="120f3276-dfe7-4b1d-8a3f-7b4192044127">
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Center" markup="none">
@@ -578,7 +557,7 @@
 					<text><![CDATA[Cve del Producto]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="0" y="218" width="80" height="10" uuid="e5288ce8-bb2d-4645-afa9-2b599ba5020f">
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="242" width="80" height="10" uuid="e5288ce8-bb2d-4645-afa9-2b599ba5020f">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -708,7 +687,7 @@
 	<summary>
 		<band height="336" splitType="Stretch">
 			<rectangle radius="5">
-				<reportElement stretchType="RelativeToBandHeight" x="1" y="105" width="569" height="177" backcolor="rgba(255, 255, 255, 0.0)" uuid="339c168d-3e82-456a-887b-417cb94ee2f6"/>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="72" width="571" height="177" backcolor="rgba(255, 255, 255, 0.0)" uuid="339c168d-3e82-456a-887b-417cb94ee2f6"/>
 				<graphicElement>
 					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#0D3082"/>
 				</graphicElement>
@@ -726,11 +705,11 @@
 				</graphicElement>
 			</rectangle>
 			<image>
-				<reportElement x="30" y="136" width="120" height="118" uuid="5097b4e6-f1e7-45d6-896e-193e7eb3e3fd"/>
+				<reportElement x="30" y="103" width="120" height="118" uuid="5097b4e6-f1e7-45d6-896e-193e7eb3e3fd"/>
 				<imageExpression><![CDATA[$P{qr}]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="180" y="113" width="193" height="7" uuid="3f386349-ee0f-4ded-867c-41e0ffab0485">
+				<reportElement stretchType="RelativeToBandHeight" x="180" y="80" width="193" height="7" uuid="3f386349-ee0f-4ded-867c-41e0ffab0485">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -740,7 +719,7 @@
 				<text><![CDATA[NUMERO DE SERIE DEL CERTIFICADO DEL SAT:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="180" y="134" width="243" height="7" uuid="fc2fe78c-1cee-42f9-8599-4b3d677c4ce3">
+				<reportElement stretchType="RelativeToBandHeight" x="180" y="101" width="243" height="7" uuid="fc2fe78c-1cee-42f9-8599-4b3d677c4ce3">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -750,7 +729,7 @@
 				<text><![CDATA[NUMERO DE SERIE DEL CERTIFICADO DEL CSD DEL EMISOR:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="180" y="155" width="103" height="7" uuid="e48fa94e-80cf-4f9c-b1d3-1f8dd7c63eb3">
+				<reportElement stretchType="RelativeToBandHeight" x="180" y="122" width="103" height="7" uuid="e48fa94e-80cf-4f9c-b1d3-1f8dd7c63eb3">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -760,7 +739,7 @@
 				<text><![CDATA[SELLO DIGITAL DEL SAT:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="180" y="193" width="103" height="7" uuid="8a3252dd-6aec-4dea-bab3-ab10402a0a77">
+				<reportElement stretchType="RelativeToBandHeight" x="180" y="160" width="103" height="7" uuid="8a3252dd-6aec-4dea-bab3-ab10402a0a77">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -770,7 +749,7 @@
 				<text><![CDATA[SELLO DIGITAL DEL CFDI:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="180" y="231" width="268" height="7" uuid="cb2c695c-016e-4646-a02c-70fa3b87f4ee">
+				<reportElement stretchType="RelativeToBandHeight" x="180" y="198" width="268" height="7" uuid="cb2c695c-016e-4646-a02c-70fa3b87f4ee">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -780,7 +759,7 @@
 				<text><![CDATA[CADENA ORIGINAL DEL COMPLEMENTO DEL CERTIFICADO DEL SAT:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="180" y="122" width="100" height="7" uuid="98509acb-62ec-47d1-9496-c6cec57809ad">
+				<reportElement x="180" y="89" width="100" height="7" uuid="98509acb-62ec-47d1-9496-c6cec57809ad">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -790,7 +769,7 @@
 				<textFieldExpression><![CDATA[$F{NoCertificadoSAT}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="180" y="143" width="100" height="7" uuid="b02522db-dff6-42eb-af16-eef17ca1878f">
+				<reportElement x="180" y="110" width="100" height="7" uuid="b02522db-dff6-42eb-af16-eef17ca1878f">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -800,7 +779,7 @@
 				<textFieldExpression><![CDATA[$F{NoCertificado}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="180" y="164" width="380" height="23" uuid="472e10b1-bfe2-4bb1-83f9-734e9b44be1c">
+				<reportElement x="180" y="131" width="380" height="23" uuid="472e10b1-bfe2-4bb1-83f9-734e9b44be1c">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -810,7 +789,7 @@
 				<textFieldExpression><![CDATA[$F{SelloSAT}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="180" y="202" width="380" height="23" uuid="bc8e5510-4a45-4766-a5db-dfdae38378df">
+				<reportElement x="180" y="169" width="380" height="23" uuid="bc8e5510-4a45-4766-a5db-dfdae38378df">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -820,7 +799,7 @@
 				<textFieldExpression><![CDATA[$F{Sello}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="180" y="240" width="380" height="36" uuid="d5e15f97-d90d-4d0d-901b-9034f4178650">
+				<reportElement x="180" y="207" width="380" height="36" uuid="d5e15f97-d90d-4d0d-901b-9034f4178650">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -962,7 +941,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="110" y="285" width="328" height="12" uuid="75a2352d-7999-463e-8ef1-f7442e80c3eb">
+				<reportElement x="110" y="252" width="328" height="12" uuid="75a2352d-7999-463e-8ef1-f7442e80c3eb">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -1000,42 +979,6 @@
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA["$ " +  new DecimalFormat("###,##0.00").format(new Double($F{TotalImpuestosTrasladados}))]]></textFieldExpression>
-			</textField>
-			<rectangle radius="5">
-				<reportElement stretchType="RelativeToBandHeight" x="2" y="66" width="568" height="34" backcolor="rgba(255, 255, 255, 0.0)" uuid="697ac722-b28f-4aeb-be62-f09dc191e3eb"/>
-				<graphicElement>
-					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#0D3082"/>
-				</graphicElement>
-			</rectangle>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="8" y="70" width="52" height="7" uuid="9b064cbd-fe0c-4a73-a9ad-0b68cbcf1220">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="6" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Comentarios:]]></text>
-			</staticText>
-			<textField isBlankWhenNull="true">
-				<reportElement x="64" y="70" width="496" height="23" uuid="67d03268-1099-4c13-bf00-c69070aecd61">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font size="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Comentarios}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="390" y="40" width="40" height="7" uuid="f689a821-5bbf-49f6-8b18-043cba65a198">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font size="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{TasaOCuotaRetenidos}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

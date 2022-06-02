@@ -1,11 +1,13 @@
 server:
-  port: 9099
+  port: 8080
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/bmv_services?useSSL=false
     username: root
     password: root
     driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   config:
     activate:
       on-profile: dev
@@ -25,6 +27,8 @@ spring:
     url: jdbc:mysql://localhost:3306/bmv_services?useSSL=false
     username: root
     password: 8lFfz2m6M7R8*mC
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   config:
     activate:
       on-profile: prod
@@ -35,3 +39,25 @@ jasperservice:
   payment: /home/GlobalNet/templates/invoices/globalnetInvoiceComplementERP.jasper
   invoice: /home/GlobalNet/templates/invoices/globalnetInvoiceERP.jasper
   subReportInvoice: /home/GlobalNet/templates/invoices/detailsInvoiceERP.jasper
+
+---
+
+server:
+  port: 9099
+spring:
+  datasource:
+    url: jdbc:mysql://10.0.0.85:3306/bmv_services?useSSL=false
+    username: crm
+    password: G9*&^Sf4cVun=*H5
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  config:
+    activate:
+      on-profile: qa
+jasperservice:
+  cert: /home/verse/reports/integrasoadev-wls-1
+  path_out: /home/alexander/GlobalGas/PDFCreatorIntegra/src/main/resources/invoice.pdf
+  url: http://alexander-thinkpad-p51:8080/PDFCreatorIntegra-1.8/integra/pdfcreator/
+  payment: /home/verse/reports/globalnetInvoiceComplementERP.jasper
+  invoice: /home/verse/reports/globalnetInvoiceERP.jasper
+  subReportInvoice: /home/verse/reports/detailsInvoiceERP.jasper
