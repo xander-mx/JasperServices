@@ -19,5 +19,4 @@ public class JasperPdfServicesApplication {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

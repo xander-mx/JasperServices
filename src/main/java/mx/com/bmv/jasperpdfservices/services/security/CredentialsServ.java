@@ -1,6 +1,5 @@
 package mx.com.bmv.jasperpdfservices.services.security;
 
-import mx.com.bmv.jasperpdfservices.handlers.JasperExceptionHandler;
 import mx.com.bmv.jasperpdfservices.models.security.Credentials;
 import mx.com.bmv.jasperpdfservices.repositories.CredentialsRepo;
 import org.slf4j.Logger;
@@ -40,9 +39,7 @@ public class CredentialsServ implements UserDetailsService {
             throw new UsernameNotFoundException("Usuario no encontrado!!!");
         }
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        credentials.getRoles().forEach(role -> {
-            authorities.add(new SimpleGrantedAuthority(role.getDescription()));
-        });
+        credentials.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getDescription())));
         return new User(credentials.getUser(), credentials.getPassword(),authorities);
     }
 

@@ -2,14 +2,13 @@ package mx.com.bmv.jasperpdfservices.models.security;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.UUID;
 
 @Entity
 @Table(name = "credentials")
 public class Credentials {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
 
     @Column(name = "username")
     private String user;
@@ -26,11 +25,11 @@ public class Credentials {
             inverseJoinColumns = { @JoinColumn(name = "id_rol",referencedColumnName="id",nullable = false, updatable = false)})
     Collection<Role> roles;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

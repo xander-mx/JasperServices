@@ -1,23 +1,23 @@
 package mx.com.bmv.jasperpdfservices.models.security;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "roles")
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
 
     @Column(name = "description")
     private String description;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
