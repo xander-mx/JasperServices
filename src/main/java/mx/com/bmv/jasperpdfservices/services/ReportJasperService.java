@@ -51,7 +51,6 @@ public class ReportJasperService {
     public static final int WEIGHT_QR = 800;
     public static final String SUBREPORT = "subreport";
     public static final String RETENCIONES = "Retenciones";
-
     private final YAMLConfig config;
 
     @Inject
