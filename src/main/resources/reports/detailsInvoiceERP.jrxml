@@ -52,7 +52,7 @@
 		<band height="27" splitType="Stretch">
 			<textField textAdjust="ScaleFont" pattern="#,##0.###;-#,##0.###" isBlankWhenNull="true">
 				<reportElement x="105" y="0" width="49" height="7" uuid="a0bd70ba-725f-47e3-975e-1c7908a94cf4"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Cantidad}]]></textFieldExpression>

@@ -26,7 +26,7 @@ public class JasperExceptionHandler {
         return new ResponseEntity<>(ex.getMessage(), headers, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler({Exception.class, RuntimeException.class})
     public ResponseEntity<Object> handleUncaughtException(Exception ex) {
         logger.error("Error inesperado: {}" , ex.getMessage());
         MultiValueMap<String, String> headers = new HttpHeaders();

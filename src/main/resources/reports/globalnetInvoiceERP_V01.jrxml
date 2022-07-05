@@ -168,7 +168,7 @@
 					</graphicElement>
 				</rectangle>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="83" y="242" width="49" height="10" uuid="2c2f84dc-165d-49ac-b3be-6a35fa65da4d">
+					<reportElement stretchType="RelativeToBandHeight" x="93" y="242" width="49" height="10" uuid="2c2f84dc-165d-49ac-b3be-6a35fa65da4d">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -226,7 +226,7 @@
 					</graphicElement>
 				</line>
 				<textField isBlankWhenNull="true">
-					<reportElement x="3" y="151" width="247" height="15" uuid="8605c715-e28c-4166-bbb1-857181e212ed">
+					<reportElement x="12" y="151" width="247" height="15" uuid="8605c715-e28c-4166-bbb1-857181e212ed">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -236,7 +236,7 @@
 					<textFieldExpression><![CDATA[$F{EmisorNombre}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="31" y="171" width="100" height="7" uuid="2c475783-7748-4314-8fbc-3ea94598f530">
+					<reportElement x="40" y="171" width="100" height="7" uuid="2c475783-7748-4314-8fbc-3ea94598f530">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -246,16 +246,17 @@
 					<textFieldExpression><![CDATA[$F{EmisorRfc}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="3" y="193" width="265" height="7" uuid="f05be744-2ce0-4784-ad55-8197aa32d119">
+					<reportElement x="12" y="193" width="248" height="7" uuid="f05be744-2ce0-4784-ad55-8197aa32d119">
 						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement>
 						<font size="6"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RegimenFiscal}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[($F{RegimenFiscal}.equals("601")?"601 Régimen General de Ley Personas Morales":"")]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="3" y="171" width="27" height="7" uuid="12e537f6-2152-4967-bb7a-8fb016f99935">
+					<reportElement stretchType="RelativeToBandHeight" x="12" y="171" width="27" height="7" uuid="12e537f6-2152-4967-bb7a-8fb016f99935">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -265,7 +266,7 @@
 					<text><![CDATA[R.F.C:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement stretchType="RelativeToBandHeight" x="3" y="184" width="69" height="7" uuid="38ef2a04-729c-46db-b522-145d09679290">
+					<reportElement stretchType="RelativeToBandHeight" x="12" y="184" width="69" height="7" uuid="38ef2a04-729c-46db-b522-145d09679290">
 						<property name="local_mesure_unitheight" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
