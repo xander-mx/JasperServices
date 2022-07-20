@@ -808,17 +808,17 @@
 				<textFieldExpression><![CDATA[$F{cadenaOriginal}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="9" y="48" width="278" height="9" uuid="9ecee543-1ce4-4f52-85b1-b4125adcf157">
+				<reportElement x="4" y="48" width="286" height="9" uuid="9ecee543-1ce4-4f52-85b1-b4125adcf157">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="6"/>
+					<font size="5.5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{importeLetra}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="9" y="39" width="78" height="7" uuid="b8550aa0-d428-4402-909c-bb4fee3cff4a">
+				<reportElement stretchType="RelativeToBandHeight" x="4" y="39" width="78" height="7" uuid="b8550aa0-d428-4402-909c-bb4fee3cff4a">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -828,7 +828,7 @@
 				<text><![CDATA[IMPORTE CON LETRA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="9" y="30" width="40" height="7" uuid="128975a0-0a94-474f-9845-7805233b3640">
+				<reportElement stretchType="RelativeToBandHeight" x="4" y="30" width="40" height="7" uuid="128975a0-0a94-474f-9845-7805233b3640">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -838,7 +838,7 @@
 				<text><![CDATA[MONEDA:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="49" y="30" width="80" height="7" uuid="bb8638aa-9736-40e4-807d-11e2d9c80d74">
+				<reportElement x="44" y="30" width="80" height="7" uuid="bb8638aa-9736-40e4-807d-11e2d9c80d74">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -848,7 +848,7 @@
 				<textFieldExpression><![CDATA[$F{Moneda}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="81" y="20" width="180" height="7" uuid="85bbf7eb-664e-45cf-b48e-e25b331b7ec3">
+				<reportElement x="76" y="20" width="180" height="7" uuid="85bbf7eb-664e-45cf-b48e-e25b331b7ec3">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -858,7 +858,7 @@
 				<textFieldExpression><![CDATA[$F{FormaPago}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" x="9" y="20" width="72" height="7" uuid="3007a391-0353-4416-b80d-903509e4ea65">
+				<reportElement stretchType="RelativeToBandHeight" x="4" y="20" width="72" height="7" uuid="3007a391-0353-4416-b80d-903509e4ea65">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
