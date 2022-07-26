@@ -51,6 +51,7 @@ public class ReportJasperService {
     public static final int WEIGHT_QR = 800;
     public static final String SUBREPORT = "subreport";
     public static final String RETENCIONES = "Retenciones";
+    public static final String SUBREPORTPAYMENT = "subreportpayment";
     private final YAMLConfig config;
 
     @Inject
@@ -76,6 +77,7 @@ public class ReportJasperService {
     }
 
     private byte[] generateReportPaymentComplement(Map<String, Object> reportParameters,ObjectNode payment) throws IOException, JRException {
+        reportParameters.put(SUBREPORTPAYMENT, config.getSubReportPayment());
         reportParameters.put(DOCTOS_RELATIONS, new JsonDataSource(JasperUtils.toStream(payment.get(COMPROBANTE)
                 .get(COMPLEMENTO)
                 .get(PAGOS)

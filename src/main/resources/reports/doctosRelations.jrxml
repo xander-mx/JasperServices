@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="doctosRelations" pageWidth="585" pageHeight="842" columnWidth="585" leftMargin="0" rightMargin="0" topMargin="2" bottomMargin="2" uuid="1883801b-de41-4461-867e-c8654d4c79dc">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JsonDoctos"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -30,15 +30,15 @@
 		<property name="net.sf.jasperreports.json.field.expression" value="NumParcialidad"/>
 		<fieldDescription><![CDATA[NumParcialidad]]></fieldDescription>
 	</field>
-	<field name="ImpSaldoAnt" class="java.lang.String">
+	<field name="ImpSaldoAnt" class="java.math.BigDecimal">
 		<property name="net.sf.jasperreports.json.field.expression" value="ImpSaldoAnt"/>
 		<fieldDescription><![CDATA[ImpSaldoAnt]]></fieldDescription>
 	</field>
-	<field name="ImpPagado" class="java.lang.String">
+	<field name="ImpPagado" class="java.math.BigDecimal">
 		<property name="net.sf.jasperreports.json.field.expression" value="ImpPagado"/>
 		<fieldDescription><![CDATA[ImpPagado]]></fieldDescription>
 	</field>
-	<field name="ImpSaldoInsoluto" class="java.lang.String">
+	<field name="ImpSaldoInsoluto" class="java.math.BigDecimal">
 		<property name="net.sf.jasperreports.json.field.expression" value="ImpSaldoInsoluto"/>
 		<fieldDescription><![CDATA[ImpSaldoInsoluto]]></fieldDescription>
 	</field>
@@ -63,14 +63,14 @@
 					<pen lineWidth="2.0" lineColor="#0D3082"/>
 				</graphicElement>
 			</line>
-			<textField pattern="#,##0.###" isBlankWhenNull="true">
+			<textField textAdjust="StretchHeight" pattern="$#,##0.##;$-##0.##" isBlankWhenNull="true">
 				<reportElement x="400" y="18" width="70" height="7" uuid="90c45f93-1cab-4996-bc7b-c8721698b7c9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA["$ " + $F{ImpSaldoAnt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ImpSaldoAnt}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="6" y="5" width="75" height="7" uuid="ba8cd7a2-47fc-4a9a-ba29-193e9ceb13bb">
@@ -137,7 +137,7 @@
 				</textElement>
 				<text><![CDATA[IMPORTE PAGADO:]]></text>
 			</staticText>
-			<textField isBlankWhenNull="true">
+			<textField textAdjust="StretchHeight" pattern="$#,##0.##;$-##0.##" isBlankWhenNull="true">
 				<reportElement x="101" y="35" width="97" height="7" uuid="3378dc96-0075-4e70-ba80-b572daf783e8">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -145,7 +145,7 @@
 				<textElement textAlignment="Left">
 					<font size="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA["$ "+ $F{ImpPagado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ImpPagado}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="304" y="18" width="96" height="7" uuid="ccf45152-a4a8-4ba2-8eab-276c71335216">
@@ -165,14 +165,14 @@
 				</textElement>
 				<text><![CDATA[IMPORTE SALDO:]]></text>
 			</staticText>
-			<textField pattern="#,##0.###" isBlankWhenNull="true">
+			<textField pattern="$#,##0.##;$-##0.##" isBlankWhenNull="true">
 				<reportElement x="400" y="29" width="110" height="7" uuid="72617f51-7296-471f-a230-a563786c96b0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA["$ " + $F{ImpSaldoInsoluto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ImpSaldoInsoluto}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="304" y="5" width="73" height="7" uuid="8400f971-e217-47cc-a89a-26a57ac836d0">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="globalnetInvoicecomplement" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="af15a7a9-f6c7-4f5e-983c-b550bacd8ab4">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JsonPayments"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -7,6 +7,8 @@
 	<parameter name="qr" class="java.io.InputStream"/>
 	<parameter name="DoctosRelations" class="net.sf.jasperreports.engine.data.JsonDataSource"/>
 	<parameter name="Conceptos" class="net.sf.jasperreports.engine.data.JsonDataSource"/>
+	<parameter name="subreport" class="java.lang.String"/>
+	<parameter name="subreportpayment" class="java.lang.String"/>
 	<queryString language="JSON">
 		<![CDATA[]]>
 	</queryString>
@@ -681,7 +683,7 @@
 						<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
 					</subreportParameter>
 					<dataSourceExpression><![CDATA[$P{Conceptos}]]></dataSourceExpression>
-					<subreportExpression><![CDATA["detailsInvoiceERP.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA[$P{subreport}]]></subreportExpression>
 				</subreport>
 				<staticText>
 					<reportElement stretchType="RelativeToBandHeight" x="93" y="2" width="49" height="10" uuid="d1a24b7e-48a6-44e2-82e6-75e5c9a02c47">
@@ -793,12 +795,12 @@
 	<detail>
 		<band height="67" splitType="Stretch">
 			<subreport>
-				<reportElement x="-20" y="0" width="573" height="60" uuid="ff686268-f8f3-494c-b2c7-2f2fc55bb0ba"/>
+				<reportElement x="0" y="0" width="573" height="60" uuid="ff686268-f8f3-494c-b2c7-2f2fc55bb0ba"/>
 				<subreportParameter name="$P{DoctosRelacionados}">
 					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[$P{DoctosRelations}]]></dataSourceExpression>
-				<subreportExpression><![CDATA["doctosRelations.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{subreportpayment}]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
