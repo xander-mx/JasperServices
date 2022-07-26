@@ -133,7 +133,8 @@ public class Persona {
         D06("D06","Aportaciones voluntarias al SAR."), D07("D07","Primas por seguros de gastos médicos"),
         D08("D08","Gastos de transportación escolar obligatoria."), D09("D09","Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones."),
         D10("D10","Pagos por servicios educativos (colegiaturas)"), P01("P01","Por definir"),
-        S01("S01", "Sin efectos fiscales");
+        S01("S01", "Sin efectos fiscales"),
+        CP01("CP01", "Pagos");
 
         private String code;
         private String description;

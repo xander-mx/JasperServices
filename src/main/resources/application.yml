@@ -18,6 +18,7 @@ jasperservice:
   payment: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceComplementERP.jasper
   invoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceERP.jasper
   subReportInvoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/detailsInvoiceERP.jasper
+  subReportPayment: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/doctosRelations.jasper
 
 ---
 server:
@@ -39,6 +40,7 @@ jasperservice:
   payment: /home/verse/reports/globalnetInvoiceComplementERP.jasper
   invoice: /home/verse/reports/globalnetInvoiceERP.jasper
   subReportInvoice: /home/verse/reports/detailsInvoiceERP.jasper
+  subReportPayment: /home/verse/reports/doctosRelations.jasper
 
 ---
 
@@ -61,3 +63,4 @@ jasperservice:
   payment: /home/verse/reports/globalnetInvoiceComplementERP.jasper
   invoice: /home/verse/reports/globalnetInvoiceERP.jasper
   subReportInvoice: /home/verse/reports/detailsInvoiceERP.jasper
+  subReportPayment: /home/verse/reports/doctosRelations.jasper
