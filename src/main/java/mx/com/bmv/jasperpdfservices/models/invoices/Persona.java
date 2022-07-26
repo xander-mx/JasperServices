@@ -19,6 +19,12 @@ public class Persona {
     @JsonProperty("UsoCFDI")
     private String usoCFDI;
 
+    @JsonProperty("RegimenFiscalReceptor")
+    private String regimenFiscalReceptor;
+
+    @JsonProperty("DomicilioFiscalReceptor")
+    private String domicilioFiscalReceptor;
+
     public String getNombre() {
         return nombre;
     }
@@ -36,6 +42,11 @@ public class Persona {
         this.regimenFiscal = (regimen == null ? String.valueOf(regimenFiscal) : regimen.getCodeDescription());
     }
 
+    public void setRegimenFiscalReceptor(int regimenFiscalReceptor) {
+        REGIMEN regimen = Arrays.stream(REGIMEN.values()).filter(reg -> reg.getCode() == regimenFiscalReceptor).findFirst().orElse(null);
+        this.regimenFiscalReceptor = (regimen == null ? String.valueOf(regimenFiscalReceptor) : regimen.getCodeDescription());
+    }
+
     public String getRfc() {
         return rfc;
     }
@@ -50,6 +61,22 @@ public class Persona {
 
     public void setUsoCFDI(String usoCFDI) {
         this.usoCFDI = USO_CFDI.valueOf(usoCFDI).getCodeDescription();
+    }
+
+    public String getRegimenFiscalReceptor() {
+        return regimenFiscalReceptor;
+    }
+
+    public void setRegimenFiscalReceptor(String regimenFiscalReceptor) {
+        this.regimenFiscalReceptor = regimenFiscalReceptor;
+    }
+
+    public String getDomicilioFiscalReceptor() {
+        return domicilioFiscalReceptor;
+    }
+
+    public void setDomicilioFiscalReceptor(String domicilioFiscalReceptor) {
+        this.domicilioFiscalReceptor = domicilioFiscalReceptor;
     }
 
     public enum REGIMEN {
