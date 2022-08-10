@@ -37,6 +37,7 @@ public class SecurityConfig {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/api/login/**","token/refresh/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/JasperService/invoice/**");
+        http.authorizeRequests().antMatchers("/core/**").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(authenticationBMVFilter);
         http.addFilterBefore(new AuthorizationBMVFilter(), UsernamePasswordAuthenticationFilter.class);
