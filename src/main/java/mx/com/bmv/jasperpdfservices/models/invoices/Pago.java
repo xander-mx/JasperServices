@@ -25,6 +25,15 @@ public class Pago {
     @JsonProperty("RfcEmisorCtaBen")
     private String rfcEmisorCtaBen;
 
+    @JsonProperty("CtaBeneficiario")
+    private String ctaBeneficiario;
+
+    @JsonProperty("RfcEmisorCtaOrd")
+    private String rfcEmisorCtaOrd;
+
+    @JsonProperty("CtaOrdenante")
+    private String ctaOrdenante;
+
     @JsonProperty("DoctoRelacionado")
     @JacksonXmlElementWrapper(useWrapping = false)
     private List<DoctoRelacionado> doctoRelacionado;
@@ -56,8 +65,30 @@ public class Pago {
         @JsonProperty("Folio")
         private String folio;
 
-        @JsonProperty("Serie")
-        private String serie;
+        @JsonProperty("ImpuestosDR")
+        public ImpuestosDR impuestosDR;
+
+        public ImpuestosDR getImpuestosDR() {
+            return impuestosDR;
+        }
+
+        public void setImpuestosDR(ImpuestosDR impuestosDR) {
+            this.impuestosDR = impuestosDR;
+        }
+
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class ImpuestosDR {
+            @JsonProperty("TrasladosDR")
+            private TrasladosDR trasladosDR;
+
+            public TrasladosDR getTrasladosDR() {
+                return trasladosDR;
+            }
+
+            public void setTrasladosDR(TrasladosDR trasladosDR) {
+                this.trasladosDR = trasladosDR;
+            }
+        }
 
         public String getIdDocumento() {
             return idDocumento;
@@ -209,6 +240,30 @@ public class Pago {
 
     public void setDoctoRelacionado(List<DoctoRelacionado> doctoRelacionado) {
         this.doctoRelacionado = doctoRelacionado;
+    }
+
+    public String getCtaBeneficiario() {
+        return ctaBeneficiario;
+    }
+
+    public void setCtaBeneficiario(String ctaBeneficiario) {
+        this.ctaBeneficiario = ctaBeneficiario;
+    }
+
+    public String getRfcEmisorCtaOrd() {
+        return rfcEmisorCtaOrd;
+    }
+
+    public void setRfcEmisorCtaOrd(String rfcEmisorCtaOrd) {
+        this.rfcEmisorCtaOrd = rfcEmisorCtaOrd;
+    }
+
+    public String getCtaOrdenante() {
+        return ctaOrdenante;
+    }
+
+    public void setCtaOrdenante(String ctaOrdenante) {
+        this.ctaOrdenante = ctaOrdenante;
     }
 }
 

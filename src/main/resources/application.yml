@@ -4,13 +4,10 @@ spring:
 
 ---
 server:
-  #port: 8080
   port: 9200
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/bmv_services?useSSL=false
-    #username: root
-    #password: root
     username: localuser
     password: 1qazxsw2
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -24,9 +21,7 @@ jasperservice:
   path_out: /home/alexander/GlobalGas/PDFCreatorIntegra/src/main/resources/invoice.pdf
   url: http://alexander-thinkpad-p51:8080/PDFCreatorIntegra-1.8/integra/pdfcreator/
   payment: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceComplementERP.jasper
-  #invoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceERP.jasper
   invoice: /media/luis/Data/GIT/JasperPDFServices/src/main/resources/reports/globalnetInvoiceERP.jasper
-  #subReportInvoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/detailsInvoiceERP.jasper
   subReportInvoice: /media/luis/Data/GIT/JasperPDFServices/src/main/resources/reports/detailsInvoiceERP.jasper
   subReportPayment: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/doctosRelations.jasper
 
@@ -74,3 +69,27 @@ jasperservice:
   invoice: /home/verse/reports/globalnetInvoiceERP.jasper
   subReportInvoice: /home/verse/reports/detailsInvoiceERP.jasper
   subReportPayment: /home/verse/reports/doctosRelations.jasper
+
+---
+
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bmv_services?useSSL=false
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  config:
+    activate:
+      on-profile: alex
+jasperservice:
+  certificate: /home/alexander/Documents/integrasoadev-wls-1
+  path_out: /home/alexander/GlobalGas/PDFCreatorIntegra/src/main/resources/invoice.pdf
+  url: http://alexander-thinkpad-p51:8080/PDFCreatorIntegra-1.8/integra/pdfcreator/
+  payment: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceComplementERP.jasper
+  invoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/globalnetInvoiceERP.jasper
+  subReportInvoice: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/detailsInvoiceERP.jasper
+  subReportPayment: /home/alexander/GlobalGas/JasperPDFServices/build/resources/main/reports/doctosRelations.jasper

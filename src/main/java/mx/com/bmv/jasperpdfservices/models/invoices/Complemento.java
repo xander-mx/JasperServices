@@ -48,7 +48,6 @@ public class Complemento {
         private String selloCFD;
         @JsonProperty("RfcProvCertif")
         private String rfcProvCertif;
-
         @JsonProperty("FechaTimbrado")
         private String fechaTimbrado;
 
