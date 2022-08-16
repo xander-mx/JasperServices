@@ -3,7 +3,6 @@ package mx.com.bmv.jasperpdfservices.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.zxing.WriterException;
 import mx.com.bmv.jasperpdfservices.models.invoices.Comprobante;
 import mx.com.bmv.jasperpdfservices.models.invoices.Concepto;
@@ -11,7 +10,14 @@ import mx.com.bmv.jasperpdfservices.models.invoices.Pago;
 import mx.com.bmv.jasperpdfservices.utils.JasperUtils;
 import mx.com.bmv.jasperpdfservices.utils.JsonUtils;
 import net.sf.jasperreports.engine.JRException;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
 import javax.inject.Inject;
 import java.io.IOException;
@@ -41,17 +47,18 @@ public class InvoiceJasperService {
     public static final String DOCTO_RELACIONADO = "DoctoRelacionado";
 
     private final ReportJasperService reportJasperService;
+    private final RestTemplate restTemplate;
 
     @Inject
-    public InvoiceJasperService(ReportJasperService reportJasperService) {
+    public InvoiceJasperService(ReportJasperService reportJasperService, RestTemplate restTemplate) {
         this.reportJasperService = reportJasperService;
+        this.restTemplate = restTemplate;
     }
 
     public String generateInvoiceJasperPdf(byte[] xmlToTransform) throws IOException, JRException, WriterException {
         JsonUtils<Comprobante> jsonUtils = new JsonUtils<>();
         ObjectMapper om = new ObjectMapper();
         ObjectNode singleInvoiceJson;
-
         Comprobante comprobante = JasperUtils.mapperXmlToModel(new String(xmlToTransform, StandardCharsets.UTF_8), Comprobante.class);
         comprobante.setTextQR(generateTextQR(comprobante));
         comprobante.setCadenaOriginal(generateOriginalString(comprobante));
@@ -118,5 +125,24 @@ public class InvoiceJasperService {
                 PIPE + comprobante.getComplemento().getTimbreFiscalDigital().getSelloCFD() +
                 PIPE + comprobante.getComplemento().getTimbreFiscalDigital().getNoCertificadoSAT() +
                 END_CADENA_ORIGINAL;
+    }
+
+    public String callEnersiPDF(byte[] xmlToTransform) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        MultiValueMap<String, String> fileMap = new LinkedMultiValueMap<>();
+        ContentDisposition contentDisposition = ContentDisposition
+              .builder("form-data")
+              .name("file")
+              .filename("cfdi.xml")
+              .build();
+        fileMap.add(HttpHeaders.CONTENT_DISPOSITION, contentDisposition.toString());
+        HttpEntity<byte[]> fileEntity = new HttpEntity<>(xmlToTransform, fileMap);
+
+        MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+        body.add("file", fileEntity);
+        HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(body, headers);
+
+        return restTemplate.postForObject("http://localhost:8191/transfer/", request, String.class);
     }
 }

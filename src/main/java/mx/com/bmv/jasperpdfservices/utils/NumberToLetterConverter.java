@@ -1,6 +1,7 @@
 package mx.com.bmv.jasperpdfservices.utils;
 
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class NumberToLetterConverter {
     private static final String[] UNIDADES = { "", "UN ", "DOS ", "TRES ",
@@ -47,27 +48,18 @@ public class NumberToLetterConverter {
             throws NumberFormatException {
 
         StringBuilder converted = new StringBuilder();
-
-        String patternThreeDecimalPoints = "#.###";
-
-        DecimalFormat format = new DecimalFormat(patternThreeDecimalPoints);
-        // format.setRoundingMode(RoundingMode.DOWN);
-
-        // formateamos el numero, para ajustarlo a el formato de tres puntos
-        // decimales
-        String formatedDouble = format.format(doubleNumber);
-        doubleNumber = Double.parseDouble(formatedDouble);
+        BigDecimal number = BigDecimal.valueOf(doubleNumber).setScale(2, RoundingMode.HALF_UP);
 
         // Validamos que sea un numero legal
-        if (doubleNumber > 999999999)
+        if (number.intValue() > 999999999)
             throw new NumberFormatException(
                     "El numero es mayor de 999'999.999, "
                             + "no es posible convertirlo");
 
-        if (doubleNumber < 0)
+        if (number.intValue() < 0)
             throw new NumberFormatException("El numero debe ser positivo");
 
-        String[] splitNumber = String.valueOf(doubleNumber).replace('.', '#')
+        String[] splitNumber = String.valueOf(number).replace('.', '#')
                 .split("#");
 
         // Descompone el trio de millones

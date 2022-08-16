@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="doctosRelations" pageWidth="585" pageHeight="842" columnWidth="585" leftMargin="0" rightMargin="0" topMargin="2" bottomMargin="2" uuid="1883801b-de41-4461-867e-c8654d4c79dc">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JsonDoctos"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -30,15 +30,15 @@
 		<property name="net.sf.jasperreports.json.field.expression" value="NumParcialidad"/>
 		<fieldDescription><![CDATA[NumParcialidad]]></fieldDescription>
 	</field>
-	<field name="ImpSaldoAnt" class="java.lang.String">
+	<field name="ImpSaldoAnt" class="java.math.BigDecimal">
 		<property name="net.sf.jasperreports.json.field.expression" value="ImpSaldoAnt"/>
 		<fieldDescription><![CDATA[ImpSaldoAnt]]></fieldDescription>
 	</field>
-	<field name="ImpPagado" class="java.lang.String">
+	<field name="ImpPagado" class="java.math.BigDecimal">
 		<property name="net.sf.jasperreports.json.field.expression" value="ImpPagado"/>
 		<fieldDescription><![CDATA[ImpPagado]]></fieldDescription>
 	</field>
-	<field name="ImpSaldoInsoluto" class="java.lang.String">
+	<field name="ImpSaldoInsoluto" class="java.math.BigDecimal">
 		<property name="net.sf.jasperreports.json.field.expression" value="ImpSaldoInsoluto"/>
 		<fieldDescription><![CDATA[ImpSaldoInsoluto]]></fieldDescription>
 	</field>
@@ -46,11 +46,31 @@
 		<property name="net.sf.jasperreports.json.field.expression" value="Folio"/>
 		<fieldDescription><![CDATA[Folio]]></fieldDescription>
 	</field>
+	<field name="BaseDR" class="java.math.BigDecimal">
+		<property name="net.sf.jasperreports.json.field.expression" value="ImpuestosDR.TrasladosDR.TrasladoDR.BaseDR"/>
+		<fieldDescription><![CDATA[ImpuestosDR.TrasladosDR.TrasladoDR.BaseDR]]></fieldDescription>
+	</field>
+	<field name="ImpuestoDR" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ImpuestosDR.TrasladosDR.TrasladoDR.ImpuestoDR"/>
+		<fieldDescription><![CDATA[ImpuestosDR.TrasladosDR.TrasladoDR.ImpuestoDR]]></fieldDescription>
+	</field>
+	<field name="TipoFactorDR" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ImpuestosDR.TrasladosDR.TrasladoDR.TipoFactorDR"/>
+		<fieldDescription><![CDATA[ImpuestosDR.TrasladosDR.TrasladoDR.TipoFactorDR]]></fieldDescription>
+	</field>
+	<field name="TasaOCuotaDR" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ImpuestosDR.TrasladosDR.TrasladoDR.TasaOCuotaDR"/>
+		<fieldDescription><![CDATA[ImpuestosDR.TrasladosDR.TrasladoDR.TasaOCuotaDR]]></fieldDescription>
+	</field>
+	<field name="ImporteDR" class="java.math.BigDecimal">
+		<property name="net.sf.jasperreports.json.field.expression" value="ImpuestosDR.TrasladosDR.TrasladoDR.ImporteDR"/>
+		<fieldDescription><![CDATA[ImpuestosDR.TrasladosDR.TrasladoDR.ImporteDR]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="51" splitType="Stretch">
+		<band height="77" splitType="Stretch">
 			<rectangle radius="5">
 				<reportElement x="1" y="1" width="580" height="44" backcolor="rgba(255, 255, 255, 0.0)" uuid="b5d08832-cce8-4bc5-bc3a-c3ff776b041d"/>
 				<graphicElement>
@@ -63,14 +83,14 @@
 					<pen lineWidth="2.0" lineColor="#0D3082"/>
 				</graphicElement>
 			</line>
-			<textField pattern="#,##0.###" isBlankWhenNull="true">
+			<textField textAdjust="StretchHeight" pattern="$#,##0.##;$-##0.##" isBlankWhenNull="true">
 				<reportElement x="400" y="18" width="70" height="7" uuid="90c45f93-1cab-4996-bc7b-c8721698b7c9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA["$ " + $F{ImpSaldoAnt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ImpSaldoAnt}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="6" y="5" width="75" height="7" uuid="ba8cd7a2-47fc-4a9a-ba29-193e9ceb13bb">
@@ -137,7 +157,7 @@
 				</textElement>
 				<text><![CDATA[IMPORTE PAGADO:]]></text>
 			</staticText>
-			<textField isBlankWhenNull="true">
+			<textField textAdjust="StretchHeight" pattern="$#,##0.##;$-##0.##" isBlankWhenNull="true">
 				<reportElement x="101" y="35" width="97" height="7" uuid="3378dc96-0075-4e70-ba80-b572daf783e8">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -145,7 +165,7 @@
 				<textElement textAlignment="Left">
 					<font size="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA["$ "+ $F{ImpPagado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ImpPagado}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="304" y="18" width="96" height="7" uuid="ccf45152-a4a8-4ba2-8eab-276c71335216">
@@ -165,14 +185,14 @@
 				</textElement>
 				<text><![CDATA[IMPORTE SALDO:]]></text>
 			</staticText>
-			<textField pattern="#,##0.###" isBlankWhenNull="true">
+			<textField pattern="$#,##0.##;$-##0.##" isBlankWhenNull="true">
 				<reportElement x="400" y="29" width="110" height="7" uuid="72617f51-7296-471f-a230-a563786c96b0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left">
 					<font size="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA["$ " + $F{ImpSaldoInsoluto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ImpSaldoInsoluto}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="304" y="5" width="73" height="7" uuid="8400f971-e217-47cc-a89a-26a57ac836d0">
@@ -191,6 +211,117 @@
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{MetodoDePagoDR}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="5">
+				<reportElement x="1" y="49" width="580" height="13" backcolor="rgba(255, 255, 255, 0.0)" uuid="d44902e5-2054-496a-b453-686c05c7aae8"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#0D3082"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="52" width="22" height="7" uuid="2e3ee4ef-638b-4188-8661-93aa39b6e675">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BASE:]]></text>
+			</staticText>
+			<textField pattern="$#,##0.##;$-#,##0.##" isBlankWhenNull="true">
+				<reportElement x="27" y="52" width="54" height="7" uuid="46a96788-8fad-4c51-85cc-843943fe15ac">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BaseDR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="140" y="52" width="40" height="7" uuid="ae9175db-e3b9-4ac9-9bff-a4a304dace71">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ImpuestoDR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="52" width="40" height="7" uuid="ccc152e5-15d2-464a-9a24-1ab19c472021">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPUESTO:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="265" y="52" width="40" height="7" uuid="f36c22a3-5dce-4694-b835-9d673b8e5bd9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TipoFactorDR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="52" width="50" height="7" uuid="afa6d1bc-0f1d-4d49-a428-48bf92c60445">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO FACTOR:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="52" width="55" height="7" uuid="a1639caf-7b15-4135-a5c8-ab6a3e48512b">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TASA O CUOTA:]]></text>
+			</staticText>
+			<textField pattern="#,##0.##;#,##0.##-" isBlankWhenNull="true">
+				<reportElement x="385" y="52" width="40" height="7" uuid="d5f01b8a-1729-415c-9a3e-c28355b52240">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TasaOCuotaDR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="52" width="35" height="7" uuid="91d84c6b-4e3d-4a7e-b97b-18a38875dda0">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="none">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE:]]></text>
+			</staticText>
+			<textField pattern="$#,##0.##;$-#,##0.##" isBlankWhenNull="true">
+				<reportElement x="490" y="52" width="60" height="7" uuid="e4735d6b-8064-486e-8a12-3c2e8bc581f1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ImporteDR}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -11,6 +11,7 @@ public class YAMLConfig {
     private String payment;
     private String invoice;
     private String subReportInvoice;
+    private String subReportPayment;
 
     public String getCertificate() {
         return certificate;
@@ -58,5 +59,13 @@ public class YAMLConfig {
 
     public void setSubReportInvoice(String subReportInvoice) {
         this.subReportInvoice = subReportInvoice;
+    }
+
+    public String getSubReportPayment() {
+        return subReportPayment;
+    }
+
+    public void setSubReportPayment(String subReportPayment) {
+        this.subReportPayment = subReportPayment;
     }
 }

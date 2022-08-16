@@ -7,43 +7,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Complemento {
     @JsonProperty("TimbreFiscalDigital")
     private TimbreFiscalDigital timbreFiscalDigital;
-
     @JsonProperty("Pagos")
     private Pagos pagos;
-
     @JsonProperty("Comentarios")
     private Comentarios comentarios;
-
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Pagos {
         private String schemaLocation;
-
         @JsonProperty("Version")
         private String version;
-
         @JsonProperty("Pago")
         private Pago pago;
-
         public String getSchemaLocation() {
             return schemaLocation;
         }
-
         public void setSchemaLocation(String schemaLocation) {
             this.schemaLocation = schemaLocation;
         }
-
         public String getVersion() {
             return version;
         }
-
         public void setVersion(String version) {
             this.version = version;
         }
-
         public Pago getPago() {
             return pago;
         }
-
         public void setPago(Pago pago) {
             this.pago = pago;
         }
@@ -51,19 +40,14 @@ public class Complemento {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class TimbreFiscalDigital {
-
         @JsonProperty("SelloSAT")
         private String selloSAT;
-
         @JsonProperty("NoCertificadoSAT")
         private String noCertificadoSAT;
-
         @JsonProperty("SelloCFD")
         private String selloCFD;
-
         @JsonProperty("RfcProvCertif")
         private String rfcProvCertif;
-
         @JsonProperty("FechaTimbrado")
         private String fechaTimbrado;
 
